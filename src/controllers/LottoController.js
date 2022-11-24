@@ -15,8 +15,9 @@ class GameController {
 
   getUserInput() {
     this.#view.readUserNumber((userInput) => {
-      Console.print(2);
       Console.print(userInput);
+      Console.print('end');
+      Console.close();
     });
   }
 }
