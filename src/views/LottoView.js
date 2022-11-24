@@ -1,3 +1,5 @@
+const { Console } = require('@woowacourse/mission-utils');
+
 class LottoView {
   #inputView;
   #outputView;
@@ -9,6 +11,10 @@ class LottoView {
 
   printGameStart() {
     this.#outputView.printGameStart();
+  }
+
+  readUserNumber(callback) {
+    this.#inputView.readUserNumber(callback);
   }
 }
 

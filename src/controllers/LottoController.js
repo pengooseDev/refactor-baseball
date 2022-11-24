@@ -1,3 +1,5 @@
+const { Console } = require('@woowacourse/mission-utils');
+
 class GameController {
   #view;
   #model;
@@ -8,6 +10,14 @@ class GameController {
 
   start() {
     this.#view.printGameStart();
+    this.getUserInput();
+  }
+
+  getUserInput() {
+    this.#view.readUserNumber((userInput) => {
+      Console.print(2);
+      Console.print(userInput);
+    });
   }
 }
 
