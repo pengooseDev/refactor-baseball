@@ -1,6 +1,4 @@
-const { Console } = require('@woowacourse/mission-utils');
-
-class LottoView {
+class GameView {
   #inputView;
   #outputView;
 
@@ -22,4 +20,4 @@ class LottoView {
   }
 }
 
-module.exports = LottoView;
+module.exports = GameView;
