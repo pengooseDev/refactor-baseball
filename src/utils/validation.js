@@ -1,28 +1,30 @@
-const isNumber = (userInput) => {
-  const numberRegex = /^\d+$/g;
-  if (userInput.match(numberRegex)) return true;
+const { ERROR_MESSAGE, USER_INPUT, VALIDATION, BOOLEAN, NUMBER, RESULT } = require('./constant');
 
-  throw new Error('[ERROR] 숫자가 아닌 값은 입력할 수 없습니다.');
+const isNumber = (userInput) => {
+  const numberRegex = VALIDATION.NUMBER_REGEX;
+  if (userInput.match(numberRegex)) return BOOLEAN.TRUE;
+
+  throw new Error(ERROR_MESSAGE.INVALID_TYPE);
 };
 
 const isValidRange = (userInput) => {
-  if (!userInput.includes('0')) return;
+  if (!userInput.includes(VALIDATION.STRING_ZERO)) return;
 
-  throw new Error('[ERROR] 1-9 사이의 값만 입력할 수 있습니다.');
+  throw new Error(ERROR_MESSAGE.INVALID_RANGE);
 };
 
 const isValidLength = (userInput) => {
-  if (userInput.length === 3) return;
+  if (userInput.length === NUMBER.NUMBER_LENGTH) return;
 
-  throw new Error('[ERROR] 세자리 수만 입력할 수 있습니다.');
+  throw new Error(ERROR_MESSAGE.INVALID_LENGTH);
 };
 
 const isDuplicated = (userInput) => {
-  const inputArray = userInput.split('');
+  const inputArray = userInput.split(RESULT.BLANK);
   const filtered = inputArray.filter((value, index) => inputArray.indexOf(value) !== index);
-  if (filtered.length === 0) return;
+  if (filtered.length === NUMBER.ZERO) return;
 
-  throw new Error('[ERROR] 중복된 수는 입력이 불가합니다.');
+  throw new Error(ERROR_MESSAGE.DUPLICATED);
 };
 
 const validateUserNumber = (userInput) => {
@@ -34,9 +36,9 @@ const validateUserNumber = (userInput) => {
 
 /* replayInput */
 const validateReplayInput = (userInput) => {
-  if (userInput === '1' || userInput === '2') return;
+  if (userInput === USER_INPUT.REPLAY || userInput === USER_INPUT.QUIT) return;
 
-  throw new Error('[Error] 게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.');
+  throw new Error(ERROR_MESSAGE.INVALID_REPLAY);
 };
 
 module.exports = { validateUserNumber, validateReplayInput };

@@ -1,10 +1,11 @@
 const { Random } = require('@woowacourse/mission-utils');
+const { NUMBER } = require('../utils/constant');
 
 const NumberGenerator = {
   generate: () => {
     const numberSet = new Set();
-    while (numberSet.size !== 3) {
-      numberSet.add(Random.pickNumberInRange(1, 9));
+    while (numberSet.size !== NUMBER.NUMBER_LENGTH) {
+      numberSet.add(Random.pickNumberInRange(NUMBER.MIN_RANDOM_NUMBER, NUMBER.MAX_RANDOM_NUMBER));
     }
 
     return [...numberSet];

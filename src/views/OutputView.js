@@ -1,10 +1,11 @@
 const { Console } = require('@woowacourse/mission-utils');
 const { parseScore } = require('../utils/utility');
+const { MESSAGE } = require('../utils/constant');
 
 const OutputView = {
   printGameStart() {
-    Console.print('숫자 야구 게임을 시작합니다.');
-    Console.print('');
+    Console.print(MESSAGE.OUTPUT_START);
+    Console.print(MESSAGE.BLANK);
   },
 
   printError(error) {
@@ -12,19 +13,19 @@ const OutputView = {
   },
 
   printScore(score) {
-    Console.print('');
+    Console.print(MESSAGE.BLANK);
     Console.print(parseScore(score));
-    Console.print('');
+    Console.print(MESSAGE.BLANK);
   },
 
   printWin() {
-    Console.print('3개의 숫자를 모두 맞히셨습니다! 게임 종료');
-    Console.print('');
+    Console.print(MESSAGE.WIN);
+    Console.print(MESSAGE.BLANK);
   },
 
   printEnd() {
-    Console.print('');
-    Console.print('게임 종료을 종료합니다.');
+    Console.print(MESSAGE.BLANK);
+    Console.print(MESSAGE.END);
   },
 };
 

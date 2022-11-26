@@ -1,5 +1,6 @@
 const { validateUserNumber, validateReplayInput } = require('../utils/validation');
 const { Console } = require('@woowacourse/mission-utils');
+const { USER_INPUT } = require('../utils/constant');
 
 class GameController {
   #view;
@@ -67,7 +68,7 @@ class GameController {
   }
 
   replayBranch(userInput) {
-    if (userInput === '1') return this.generateComputerNumber();
+    if (userInput === USER_INPUT.REPLAY) return this.generateComputerNumber();
     this.end();
   }
 

@@ -1,20 +1,23 @@
-const checkInclude = (computerNumbers, userNumber) => {
-  if (computerNumbers.includes(userNumber)) return true;
+const { RESULT, BOOLEAN } = require('./constant');
 
-  return false;
+const checkInclude = (computerNumbers, userNumber) => {
+  if (computerNumbers.includes(userNumber)) return BOOLEAN.TRUE;
+
+  return BOOLEAN.FALSE;
 };
 
 const checkSameIndex = (computerNumber, userNumber, userIndex) => {
-  if (computerNumber.indexOf(userNumber) === userIndex) return true;
+  if (computerNumber.indexOf(userNumber) === userIndex) return BOOLEAN.TRUE;
 
-  return false;
+  return BOOLEAN.FALSE;
 };
 
 const parseScore = (score) => {
   const { ball, strike } = score;
-  const stringBall = ball ? `${ball}볼` : '';
-  const stringStrike = strike ? `${strike}스트라이크` : '';
-  const result = stringBall || stringStrike ? `${stringBall} ${stringStrike}`.trim() : '낫싱';
+  const stringBall = ball ? RESULT.BALL(ball) : RESULT.BLANK;
+  const stringStrike = strike ? RESULT.STRIKE(strike) : RESULT.BLANK;
+  const result =
+    stringBall || stringStrike ? RESULT.SCORE(stringBall, stringStrike) : RESULT.NOTHING;
 
   return result;
 };

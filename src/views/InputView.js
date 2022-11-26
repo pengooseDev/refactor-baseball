@@ -1,14 +1,15 @@
 const { Console } = require('@woowacourse/mission-utils');
+const { MESSAGE } = require('../utils/constant');
 
 const InputView = {
   readUserNumber(callback) {
-    Console.readLine('숫자를 입력해주세요 : ', (userInput) => {
+    Console.readLine(MESSAGE.INPUT_NUMBER, (userInput) => {
       callback(userInput);
     });
   },
 
   readReplayGame(callback) {
-    Console.readLine('게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.', (userInput) => {
+    Console.readLine(MESSAGE.INPUT_REPLAY, (userInput) => {
       callback(userInput);
     });
   },

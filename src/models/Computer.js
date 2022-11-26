@@ -1,17 +1,17 @@
 const NumberGenerator = require('./NumberGenerator');
 const { checkInclude, checkSameIndex } = require('../utils/utility');
+const { UNIT, NUMBER } = require('../utils/constant');
 
 class Computer {
   #number;
   #numberGenerator = NumberGenerator;
   #score = {
-    ball: 0,
-    strike: 0,
+    ball: NUMBER.DEFAULT_BALL,
+    strike: NUMBER.DEFAULT_STRIKE,
   };
 
   createNumber() {
     this.#number = this.#numberGenerator.generate();
-    console.log(`solution : ${this.#number}`);
   }
 
   checkResult(userInput) {
@@ -24,12 +24,12 @@ class Computer {
   checkScore(value, index) {
     const isInclude = checkInclude(this.#number, value);
     const isSameIndex = checkSameIndex(this.#number, value, index);
-    if (isInclude && isSameIndex) return (this.#score.strike += 1);
-    if (isInclude) return (this.#score.ball += 1);
+    if (isInclude && isSameIndex) return (this.#score.strike += UNIT.COUNT);
+    if (isInclude) return (this.#score.ball += UNIT.COUNT);
   }
 
   checkPlayerWin() {
-    return this.#score.strike === 3;
+    return this.#score.strike === NUMBER.WIN;
   }
 
   getScore() {
@@ -38,8 +38,8 @@ class Computer {
 
   resetScore() {
     this.#score = {
-      ball: 0,
-      strike: 0,
+      ball: NUMBER.DEFAULT_BALL,
+      strike: NUMBER.DEFAULT_STRIKE,
     };
   }
 }
