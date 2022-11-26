@@ -12,6 +12,10 @@ class GameModel {
   checkResult(userInput) {
     this.#computer.checkResult(userInput);
   }
+
+  checkPlayerWin() {
+    return this.#computer.checkPlayerWin();
+  }
 }
 
 module.exports = GameModel;

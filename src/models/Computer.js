@@ -29,6 +29,10 @@ class Computer {
     if (isInclude) return (this.#score.ball += 1);
   }
 
+  checkPlayerWin() {
+    return this.#score.strike === 3;
+  }
+
   resetScore() {
     this.#score = {
       ball: 0,

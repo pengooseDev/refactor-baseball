@@ -1,4 +1,4 @@
-const { validateUserNumber } = require('../utils/Validator');
+const { validateUserNumber } = require('../utils/validator');
 const { Console } = require('@woowacourse/mission-utils');
 
 class GameController {
@@ -34,6 +34,18 @@ class GameController {
   checkResult(userInput) {
     const userInputArray = userInput.split('').map((string) => Number(string));
     this.#model.checkResult(userInputArray);
+    this.playBranch();
+  }
+
+  playBranch() {
+    const isPlayerWin = this.#model.checkPlayerWin();
+    if (isPlayerWin) return this.win();
+
+    return this.getUserInput();
+  }
+
+  win() {
+    console.log('win');
     Console.close();
   }
 }
