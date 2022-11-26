@@ -47,7 +47,7 @@ class GameController {
   }
 
   win() {
-    console.log('win');
+    this.#view.printWin();
     Console.close();
   }
 }
