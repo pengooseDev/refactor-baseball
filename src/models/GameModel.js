@@ -16,6 +16,10 @@ class GameModel {
   checkPlayerWin() {
     return this.#computer.checkPlayerWin();
   }
+
+  getScore() {
+    return this.#computer.getScore();
+  }
 }
 
 module.exports = GameModel;

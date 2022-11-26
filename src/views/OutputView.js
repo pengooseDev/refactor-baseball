@@ -1,4 +1,5 @@
 const { Console } = require('@woowacourse/mission-utils');
+const { parseScore } = require('../utils/utility');
 
 const OutputView = {
   printGameStart() {
@@ -8,6 +9,10 @@ const OutputView = {
   printError(error) {
     Console.print(error);
     Console.close();
+  },
+
+  printScore(score) {
+    Console.print(parseScore(score));
   },
 };
 

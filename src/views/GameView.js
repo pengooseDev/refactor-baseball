@@ -15,6 +15,10 @@ class GameView {
     this.#outputView.printError(error);
   }
 
+  printScore(score) {
+    this.#outputView.printScore(score);
+  }
+
   readUserNumber(callback) {
     this.#inputView.readUserNumber(callback);
   }

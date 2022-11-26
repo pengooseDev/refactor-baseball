@@ -38,6 +38,7 @@ class GameController {
   }
 
   playBranch() {
+    this.#view.printScore(this.#model.getScore());
     const isPlayerWin = this.#model.checkPlayerWin();
     if (isPlayerWin) return this.win();
 

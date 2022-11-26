@@ -33,6 +33,10 @@ class Computer {
     return this.#score.strike === 3;
   }
 
+  getScore() {
+    return this.#score;
+  }
+
   resetScore() {
     this.#score = {
       ball: 0,

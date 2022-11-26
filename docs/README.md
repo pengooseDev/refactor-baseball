@@ -32,5 +32,5 @@
 
 ##### 결과 출력
 
-- [ ] Controller에서 결과값을 파싱한다.
-- [ ] outputView로 결과값을 전달해 이를 출력한다.
+- [x] Controller에서 결과값을 파싱한다.
+- [x] outputView로 결과값을 전달해 이를 출력한다.
