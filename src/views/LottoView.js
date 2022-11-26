@@ -13,6 +13,10 @@ class LottoView {
     this.#outputView.printGameStart();
   }
 
+  printError(error) {
+    this.#outputView.printError(error);
+  }
+
   readUserNumber(callback) {
     this.#inputView.readUserNumber(callback);
   }
