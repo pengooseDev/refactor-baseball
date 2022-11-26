@@ -1,6 +1,6 @@
-const LottoController = require('./controllers/LottoController');
+const GameController = require('./controllers/GameController');
 const InputView = require('./views/InputView');
-const LottoView = require('./views/LottoView');
+const GameView = require('./views/GameView');
 const OutputView = require('./views/OutputView');
 
 class App {
@@ -8,8 +8,8 @@ class App {
   #controller;
 
   constructor() {
-    this.#view = new LottoView(InputView, OutputView);
-    this.#controller = new LottoController(this.#view);
+    this.#view = new GameView(InputView, OutputView);
+    this.#controller = new GameController(this.#view);
   }
 
   play() {
