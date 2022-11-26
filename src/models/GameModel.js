@@ -9,8 +9,8 @@ class GameModel {
     this.#computer.createNumber();
   }
 
-  getNumber() {
-    this.#computer.getNumber();
+  checkResult(userInput) {
+    this.#computer.checkResult(userInput);
   }
 }
 

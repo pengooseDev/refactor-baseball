@@ -25,15 +25,15 @@ class GameController {
   validUserInput(userInput) {
     try {
       validateUserNumber(userInput);
-      this.create();
+      this.checkResult(userInput);
     } catch (error) {
       this.#view.printError(error);
     }
   }
 
-  create() {
-    console.log('end');
-    console.log(this.#model.getNumber());
+  checkResult(userInput) {
+    const userInputArray = userInput.split('').map((string) => Number(string));
+    this.#model.checkResult(userInputArray);
     Console.close();
   }
 }
