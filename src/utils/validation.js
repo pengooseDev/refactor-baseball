@@ -22,7 +22,7 @@ const isDuplicated = (userInput) => {
   const filtered = inputArray.filter((value, index) => inputArray.indexOf(value) !== index);
   if (filtered.length === 0) return;
 
-  throw new Error('중복된 수는 입력이 불가합니다.');
+  throw new Error('[ERROR] 중복된 수는 입력이 불가합니다.');
 };
 
 const validateUserNumber = (userInput) => {
@@ -32,4 +32,11 @@ const validateUserNumber = (userInput) => {
   isDuplicated(userInput);
 };
 
-module.exports = { validateUserNumber };
+/* replayInput */
+const validateReplayInput = (userInput) => {
+  if (userInput === '1' || userInput === '2') return;
+
+  throw new Error('[Error] 게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.');
+};
+
+module.exports = { validateUserNumber, validateReplayInput };

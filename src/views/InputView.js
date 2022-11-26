@@ -6,6 +6,12 @@ const InputView = {
       callback(userInput);
     });
   },
+
+  readReplayGame(callback) {
+    Console.readLine('게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.', (userInput) => {
+      callback(userInput);
+    });
+  },
 };
 
 module.exports = InputView;

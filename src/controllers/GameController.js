@@ -1,4 +1,4 @@
-const { validateUserNumber } = require('../utils/validation');
+const { validateUserNumber, validateReplayInput } = require('../utils/validation');
 const { Console } = require('@woowacourse/mission-utils');
 
 class GameController {
@@ -12,23 +12,25 @@ class GameController {
 
   start() {
     this.#view.printGameStart();
+    this.generateComputerNumber();
+  }
+
+  generateComputerNumber() {
     this.#model.createNumber();
-    this.getUserInput();
+    this.getNumberInput();
   }
 
-  getUserInput() {
-    this.#view.readUserNumber((userInput) => {
-      this.validUserInput(userInput);
-    });
+  getNumberInput() {
+    this.#view.readUserNumber(this.validNumberInput.bind(this));
   }
 
-  validUserInput(userInput) {
+  validNumberInput(userInput) {
     try {
       validateUserNumber(userInput);
       this.checkResult(userInput);
     } catch (error) {
       this.#view.printError(error);
-      this.getUserInput();
+      this.getNumberInput();
     }
   }
 
@@ -43,11 +45,34 @@ class GameController {
     const isPlayerWin = this.#model.checkPlayerWin();
     if (isPlayerWin) return this.win();
 
-    return this.getUserInput();
+    return this.getNumberInput();
   }
 
   win() {
     this.#view.printWin();
+    this.getReplayInput();
+  }
+
+  getReplayInput() {
+    this.#view.readReplayGame(this.validReplayInput.bind(this));
+  }
+
+  validReplayInput(userInput) {
+    try {
+      validateReplayInput(userInput);
+      this.replayBranch(userInput);
+    } catch (error) {
+      this.#view.printError(error);
+    }
+  }
+
+  replayBranch(userInput) {
+    if (userInput === '1') return this.generateComputerNumber();
+    this.end();
+  }
+
+  end() {
+    this.#view.printEnd();
     Console.close();
   }
 }

@@ -23,8 +23,16 @@ class GameView {
     this.#outputView.printWin();
   }
 
+  printEnd() {
+    this.#outputView.printEnd();
+  }
+
   readUserNumber(callback) {
     this.#inputView.readUserNumber(callback);
+  }
+
+  readReplayGame(callback) {
+    this.#inputView.readReplayGame(callback);
   }
 }
 
