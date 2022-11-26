@@ -11,7 +11,7 @@ class Computer {
 
   createNumber() {
     this.#number = this.#numberGenerator.generate();
-    console.log(this.#number);
+    console.log(`solution : ${this.#number}`);
   }
 
   checkResult(userInput) {
@@ -19,7 +19,6 @@ class Computer {
     userInput.map((value, index) => {
       this.checkScore(value, index);
     });
-    console.log(this.#score);
   }
 
   checkScore(value, index) {

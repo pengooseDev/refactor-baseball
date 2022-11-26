@@ -1,4 +1,4 @@
-const { validateUserNumber } = require('../utils/validator');
+const { validateUserNumber } = require('../utils/validation');
 const { Console } = require('@woowacourse/mission-utils');
 
 class GameController {
@@ -28,6 +28,7 @@ class GameController {
       this.checkResult(userInput);
     } catch (error) {
       this.#view.printError(error);
+      this.getUserInput();
     }
   }
 

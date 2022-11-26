@@ -8,7 +8,6 @@ const OutputView = {
 
   printError(error) {
     Console.print(error);
-    Console.close();
   },
 
   printScore(score) {
